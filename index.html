@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<!-- © https://saadbinyousaf.dev/ © -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>GoHighLevel Sub-Account Logo CSS Generator — Free Tool</title>
+<meta name="description" content="Give every GoHighLevel sub-account its own sidebar logo. Paste the location ID and logo link, get copy-paste CSS that hides the agency logo cleanly. Free, no signup.">
+<meta name="author" content="Saad Bin Yousaf">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://saadbinyousaf.dev/tools/ghl-logo-generator/">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="GoHighLevel Sub-Account Logo CSS Generator">
+<meta property="og:description" content="Copy-paste CSS to show a different logo in every GHL sub-account. Free tool by Saad Bin Yousaf.">
+<meta property="og:url" content="https://saadbinyousaf.dev/tools/ghl-logo-generator/">
+<meta property="og:site_name" content="saadbinyousaf.dev">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="GoHighLevel Sub-Account Logo CSS Generator">
+<meta name="twitter:description" content="Copy-paste CSS to show a different logo in every GHL sub-account.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- © https://saadbinyousaf.dev/ © -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "GoHighLevel Sub-Account Logo CSS Generator",
+  "url": "https://saadbinyousaf.dev/tools/ghl-logo-generator/",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "author": { "@type": "Person", "name": "Saad Bin Yousaf", "url": "https://saadbinyousaf.dev/" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why does the agency logo still show on top of my custom sub-account logo?",
+      "acceptedAnswer": { "@type": "Answer", "text": "GoHighLevel draws the white-label agency logo on a ::before or ::after pseudo-element of the logo container. Pseudo-elements paint above the container's own background, so a background-image logo sits underneath it. Hiding only the img tag, or scoping the hide rule to one sidebar variant, leaves the agency logo visible. This generator removes the img, ::before and ::after for the chosen location." }
+    },
+    {
+      "@type": "Question",
+      "name": "Where do I find the GoHighLevel location ID?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Open the sub-account. The location ID is the part of the address bar after /location/. It is usually 20 characters long." }
+    },
+    {
+      "@type": "Question",
+      "name": "Will this change the logo in my other sub-accounts?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. Every rule is scoped to the location ID you enter, so other sub-accounts and the agency view keep their current logo." }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I remove a custom sub-account logo?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Delete that sub-account's block from your agency Custom CSS and save. The default logo comes back after a refresh." }
+    }
+  ]
+}
+</script>
+
+<style>
+/* © https://saadbinyousaf.dev/ © */
+:root {
+  --bg: #EDF0F3;
+  --surface: #FFFFFF;
+  --ink: #17202C;
+  --muted: #5A6676;
+  --line: #D5DBE3;
+  --accent: #0E7C66;
+  --accent-ink: #FFFFFF;
+  --accent-soft: #E3F3EF;
+  --warn: #8A4E00;
+  --warn-bg: #FFF4E0;
+  --bad: #B42318;
+  --bad-bg: #FDECEA;
+  --code-bg: #0F1720;
+  --code-ink: #D8E1EA;
+  --code-dim: #7D8B9B;
+  --sidebar: #1D2533;
+  --sidebar-line: #2E3849;
+  --radius-lg: 14px;
+  --radius-sm: 8px;
+  --sans: "Instrument Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0E131A;
+    --surface: #161D27;
+    --ink: #E6EBF1;
+    --muted: #93A0B0;
+    --line: #2A3442;
+    --accent: #35C2A0;
+    --accent-ink: #04130F;
+    --accent-soft: #12302A;
+    --warn: #F0B45A;
+    --warn-bg: #2A1F0D;
+    --bad: #F08C82;
+    --bad-bg: #2B1414;
+    --code-bg: #0A0F15;
+    --code-dim: #6E7C8C;
+    --sidebar: #0B1017;
+    --sidebar-line: #1E2733;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0E131A;
+  --surface: #161D27;
+  --ink: #E6EBF1;
+  --muted: #93A0B0;
+  --line: #2A3442;
+  --accent: #35C2A0;
+  --accent-ink: #04130F;
+  --accent-soft: #12302A;
+  --warn: #F0B45A;
+  --warn-bg: #2A1F0D;
+  --bad: #F08C82;
+  --bad-bg: #2B1414;
+  --code-bg: #0A0F15;
+  --code-dim: #6E7C8C;
+  --sidebar: #0B1017;
+  --sidebar-line: #1E2733;
+}
+*, *::before, *::after { box-sizing: inherit; }
+html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 1120px; margin: 0 auto; padding: 40px 20px 56px; }
+header { margin-bottom: 24px; max-width: 680px; }
+h1 {
+  font-size: clamp(26px, 4vw, 36px);
+  line-height: 1.15;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0 0 10px;
+}
+header p { margin: 0; color: var(--muted); font-size: 16px; }
+
+/* © https://saadbinyousaf.dev/ © */
+.ad-slot {
+  margin: 24px 0;
+  min-height: 110px;
+  text-align: center;
+}
+.ad-slot .ad-label {
+  display: block;
+  font-size: 11px;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+.ad-slot ins { min-height: 90px; }
+.ad-mid { margin: 40px 0; }
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+  gap: 20px;
+  align-items: start;
+}
+@media (max-width: 860px) { .grid { grid-template-columns: minmax(0, 1fr); } }
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+}
+.card h2 { font-size: 18px; font-weight: 600; margin: 0 0 18px; letter-spacing: -0.01em; }
+.field { margin-bottom: 20px; }
+.field:last-child { margin-bottom: 0; }
+label { display: block; font-weight: 600; font-size: 14px; margin-bottom: 6px; }
+input[type="text"], input[type="url"], input[type="number"] {
+  width: 100%;
+  font: inherit;
+  font-size: 15px;
+  color: var(--ink);
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 11px 12px;
+  transition: border-color .15s, box-shadow .15s;
+}
+input.mono { font-family: var(--mono); font-size: 14px; }
+input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+input[aria-invalid="true"] { border-color: var(--bad); }
+.help { font-size: 13px; color: var(--muted); margin-top: 6px; }
+.msg { font-size: 13px; margin-top: 8px; padding: 8px 10px; border-radius: var(--radius-sm); display: none; }
+.msg.show { display: block; }
+.msg.ok { background: var(--accent-soft); color: var(--accent); }
+.msg.warn { background: var(--warn-bg); color: var(--warn); }
+.msg.bad { background: var(--bad-bg); color: var(--bad); }
+
+.preview-wrap { display: flex; gap: 16px; align-items: stretch; margin-bottom: 20px; flex-wrap: wrap; }
+.sidebar {
+  width: 220px;
+  max-width: 100%;
+  background: var(--sidebar);
+  border-radius: var(--radius-sm);
+  padding: 14px 12px 18px;
+  flex-shrink: 0;
+}
+.sb-logo {
+  height: 100px;
+  border-radius: 6px;
+  background-color: rgba(255,255,255,0.04);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6E7C8C;
+  font-size: 12px;
+  text-align: center;
+  padding: 0 8px;
+}
+.sb-logo.has-img { background-color: transparent; color: transparent; }
+.sb-item { height: 10px; border-radius: 5px; background: var(--sidebar-line); margin: 12px 4px; }
+.sb-item:nth-child(3) { width: 70%; }
+.sb-item:nth-child(4) { width: 85%; }
+.sb-item:nth-child(5) { width: 60%; }
+.sb-item:nth-child(6) { width: 78%; }
+.preview-meta {
+  flex: 1;
+  min-width: 180px;
+  font-size: 14px;
+  color: var(--muted);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+}
+.preview-meta strong { color: var(--ink); font-weight: 600; }
+.code-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 10px; }
+.code-head h3 { font-size: 15px; font-weight: 600; margin: 0; }
+button {
+  font: inherit;
+  font-weight: 600;
+  font-size: 14px;
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 10px 18px;
+  cursor: pointer;
+  background: var(--accent);
+  color: var(--accent-ink);
+  transition: opacity .15s, transform .1s;
+}
+button:hover:not(:disabled) { opacity: .9; }
+button:active:not(:disabled) { transform: translateY(1px); }
+button:disabled { opacity: .4; cursor: not-allowed; }
+button:focus-visible { outline: 3px solid var(--accent-soft); outline-offset: 2px; }
+.code {
+  background: var(--code-bg);
+  color: var(--code-ink);
+  border-radius: var(--radius-sm);
+  padding: 16px 18px;
+  font-family: var(--mono);
+  font-size: 12.5px;
+  line-height: 1.65;
+  overflow-x: auto;
+  margin: 0;
+  min-height: 120px;
+  white-space: pre;
+}
+.code.empty { color: var(--code-dim); white-space: normal; font-family: var(--sans); font-size: 14px; display: flex; align-items: center; }
+
+.steps { margin: 0; padding: 0; list-style: none; counter-reset: s; display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 16px; }
+.steps li { counter-increment: s; position: relative; padding-left: 38px; font-size: 14px; }
+.steps li::before {
+  content: counter(s);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.steps strong { display: block; font-weight: 600; margin-bottom: 2px; }
+.steps span { color: var(--muted); }
+kbd { font-family: var(--mono); font-size: 12px; background: var(--bg); border: 1px solid var(--line); border-radius: 4px; padding: 1px 5px; }
+code.inline { font-family: var(--mono); font-size: 13px; background: var(--bg); border: 1px solid var(--line); border-radius: 4px; padding: 1px 5px; }
+
+.prose { max-width: 720px; }
+.prose p { margin: 0 0 14px; color: var(--muted); }
+.prose p:last-child { margin-bottom: 0; }
+.stack > * + * { margin-top: 20px; }
+.faq details { border-top: 1px solid var(--line); padding: 14px 0; }
+.faq details:last-child { border-bottom: 1px solid var(--line); }
+.faq summary { cursor: pointer; font-weight: 600; font-size: 15px; }
+.faq details p { margin: 10px 0 0; color: var(--muted); font-size: 14px; }
+
+footer { margin-top: 32px; font-size: 13px; color: var(--muted); text-align: center; }
+footer a { color: var(--muted); }
+footer nav { margin-top: 6px; display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>GoHighLevel sub-account logo generator</h1>
+    <p>Give every sub-account its own sidebar logo. Enter the location ID and logo link, then paste the code into your agency Custom CSS. Free, no signup.</p>
+  </header>
+
+  <div class="ad-slot ad-top" aria-label="Advertisement">
+    <span class="ad-label">Advertisement</span>
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="1111111111" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  </div>
+
+  <main>
+    <div class="grid">
+      <section class="card" aria-labelledby="form-title">
+        <h2 id="form-title">Sub-account details</h2>
+
+        <div class="field">
+          <label for="name">Sub-account name</label>
+          <input type="text" id="name" placeholder="e.g. Summit Roofing" autocomplete="off">
+          <div class="help">Used as a label so the block is easy to find later.</div>
+        </div>
+
+        <div class="field">
+          <label for="lid">Location ID</label>
+          <input type="text" id="lid" class="mono" placeholder="Paste the ID or the whole page link" autocomplete="off" spellcheck="false">
+          <div class="help">Open the sub-account. The ID is the part after <kbd>/location/</kbd> in the address bar. Pasting the full link works too.</div>
+          <div class="msg" id="lid-msg" role="status"></div>
+        </div>
+
+        <div class="field">
+          <label for="url">Logo link</label>
+          <input type="url" id="url" class="mono" placeholder="https://…" autocomplete="off" spellcheck="false">
+          <div class="help">Upload the logo to the sub-account's Media Library and copy its link. A wide, transparent PNG or WebP looks best.</div>
+          <div class="msg" id="url-msg" role="status"></div>
+        </div>
+
+        <div class="field">
+          <label for="height">Logo height (px)</label>
+          <input type="number" id="height" value="100" min="40" max="200" step="5">
+          <div class="help">Between 40 and 200. 100 suits most logos.</div>
+        </div>
+      </section>
+
+      <section class="card" aria-labelledby="out-title">
+        <h2 id="out-title">Preview and code</h2>
+        <div class="preview-wrap">
+          <div class="sidebar" aria-label="Sidebar preview">
+            <div class="sb-logo" id="sb-logo">Logo appears here</div>
+            <div class="sb-item"></div>
+            <div class="sb-item"></div>
+            <div class="sb-item"></div>
+            <div class="sb-item"></div>
+            <div class="sb-item"></div>
+          </div>
+          <div class="preview-meta" id="preview-meta">
+            <span>This is roughly how the logo will sit at the top of the sidebar.</span>
+          </div>
+        </div>
+        <div class="code-head">
+          <h3>Code to paste</h3>
+          <button type="button" id="copy" disabled>Copy code</button>
+        </div>
+        <pre class="code empty" id="code">Fill in the name, location ID and logo link to get your code.</pre>
+      </section>
+    </div>
+
+    <div class="ad-slot ad-mid" aria-label="Advertisement">
+      <span class="ad-label">Advertisement</span>
+      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="2222222222" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    </div>
+
+    <div class="stack">
+      <section class="card" aria-labelledby="steps-title">
+        <h2 id="steps-title">How to add it</h2>
+        <ol class="steps">
+          <li><strong>Copy the code</strong><span>Use the Copy code button once the preview looks right.</span></li>
+          <li><strong>Open agency Custom CSS</strong><span>Switch to the agency view and open the Custom CSS setting where your white-label styles live.</span></li>
+          <li><strong>Paste at the bottom</strong><span>Add a new line after the last closing <kbd>}</kbd> and paste. One block per sub-account.</span></li>
+          <li><strong>Save and refresh</strong><span>Open the sub-account and hard refresh with <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd> (Mac: <kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd>).</span></li>
+        </ol>
+      </section>
+
+      <section class="card prose" aria-labelledby="why-title">
+        <h2 id="why-title">Why the agency logo keeps showing through</h2>
+        <p>Most sub-account logo snippets hide the <code class="inline">img</code> tag and set a background image on the logo container. That works until the agency logo reappears on top of the new one.</p>
+        <p>The cause is that GoHighLevel paints the white-label logo on a <code class="inline">::before</code> or <code class="inline">::after</code> pseudo-element of the same container. A pseudo-element always draws above its parent's background, so the custom logo ends up underneath. Snippets that only hide the pseudo-element inside <code class="inline">.sidebar-v2-location</code> also miss the other sidebar layouts, such as the collapsed sidebar and the mobile header.</p>
+        <p>The code this tool generates removes the image, both pseudo-elements and any background they carry, for the one location you enter, on every sidebar layout. Nothing changes for your other sub-accounts or the agency view.</p>
+      </section>
+
+      <section class="card faq" aria-labelledby="faq-title">
+        <h2 id="faq-title">Questions</h2>
+        <details>
+          <summary>Will this change the logo in my other sub-accounts?</summary>
+          <p>No. Every rule is scoped to the location ID you enter, so other sub-accounts and the agency view keep their current logo.</p>
+        </details>
+        <details>
+          <summary>The logo didn't change. What should I check?</summary>
+          <p>Make sure the location ID matches the address bar exactly, capitals included. Open the logo link in a private window; if it doesn't load there, it won't load for your clients either. Finally, check the block was pasted after the last closing brace, not inside another rule.</p>
+        </details>
+        <details>
+          <summary>What size should the logo image be?</summary>
+          <p>Use a wide, transparent image about two to three times the height you choose here, so it stays sharp on high-resolution screens. Square logos work but tend to look small in the sidebar.</p>
+        </details>
+        <details>
+          <summary>How do I remove a custom logo later?</summary>
+          <p>Delete that sub-account's block from your agency Custom CSS and save. The default logo returns after a refresh.</p>
+        </details>
+        <details>
+          <summary>Will this keep working after GoHighLevel updates?</summary>
+          <p>It targets the logo container classes GoHighLevel currently uses. If a platform update renames them, the logo will fall back to the default rather than break the page, and the selectors will need updating.</p>
+        </details>
+      </section>
+    </div>
+
+    <div class="ad-slot ad-bottom" aria-label="Advertisement">
+      <span class="ad-label">Advertisement</span>
+      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="3333333333" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    </div>
+  </main>
+
+  <footer>
+    Built by <a href="https://saadbinyousaf.dev/" target="_blank" rel="noopener">Saad Bin Yousaf</a>
+    <nav aria-label="Legal">
+      <a href="/privacy">Privacy policy</a>
+      <a href="/terms">Terms</a>
+      <a href="https://saadbinyousaf.dev/" target="_blank" rel="noopener">Hire me for GHL work</a>
+    </nav>
+  </footer>
+</div>
+
+<script>
+// © https://saadbinyousaf.dev/ © //
+const $ = (id) => document.getElementById(id);
+const els = {
+  name: $("name"),
+  lid: $("lid"),
+  url: $("url"),
+  height: $("height"),
+  lidMsg: $("lid-msg"),
+  urlMsg: $("url-msg"),
+  logo: $("sb-logo"),
+  meta: $("preview-meta"),
+  code: $("code"),
+  copy: $("copy")
+};
+const state = { imgOk: null, imgW: 0, imgH: 0, token: 0 };
+
+// © https://saadbinyousaf.dev/ © //
+function setMsg(el, type, text) {
+  el.className = "msg" + (type ? " show " + type : "");
+  el.textContent = text || "";
+}
+
+function extractId(raw) {
+  const v = raw.trim();
+  const m = v.match(/location\/([A-Za-z0-9]+)/);
+  if (m) return { id: m[1], fromLink: true };
+  return { id: v.replace(/[^A-Za-z0-9]/g, ""), fromLink: false };
+}
+
+function cleanName(v) {
+  return v.replace(/\*\//g, "").replace(/[\r\n]+/g, " ").trim();
+}
+
+function cleanUrl(v) {
+  return v.trim().replace(/\s/g, "%20").replace(/'/g, "%27");
+}
+
+function clampHeight() {
+  const n = parseInt(els.height.value, 10);
+  if (isNaN(n)) return 100;
+  return Math.min(200, Math.max(40, n));
+}
+
+// © https://saadbinyousaf.dev/ © //
+function checkId() {
+  const raw = els.lid.value;
+  if (!raw.trim()) {
+    setMsg(els.lidMsg, "", "");
+    els.lid.removeAttribute("aria-invalid");
+    return null;
+  }
+  const { id, fromLink } = extractId(raw);
+  if (fromLink && id) els.lid.value = id;
+  if (id.length < 10) {
+    setMsg(els.lidMsg, "bad", "That doesn't look like a location ID. Copy the part after /location/ in the address bar.");
+    els.lid.setAttribute("aria-invalid", "true");
+    return null;
+  }
+  els.lid.removeAttribute("aria-invalid");
+  if (id.length !== 20) {
+    setMsg(els.lidMsg, "warn", "Location IDs are usually 20 characters. This one has " + id.length + ", so double-check it.");
+  } else if (fromLink) {
+    setMsg(els.lidMsg, "ok", "Picked the ID out of the link.");
+  } else {
+    setMsg(els.lidMsg, "", "");
+  }
+  return id;
+}
+
+function checkUrl() {
+  const raw = els.url.value.trim();
+  if (!raw) {
+    setMsg(els.urlMsg, "", "");
+    els.url.removeAttribute("aria-invalid");
+    return null;
+  }
+  if (!/^https:\/\//i.test(raw)) {
+    setMsg(els.urlMsg, "bad", "The link must start with https://");
+    els.url.setAttribute("aria-invalid", "true");
+    return null;
+  }
+  els.url.removeAttribute("aria-invalid");
+  return cleanUrl(raw);
+}
+
+// © https://saadbinyousaf.dev/ © //
+let imgTimer;
+function loadPreview(url) {
+  clearTimeout(imgTimer);
+  const token = ++state.token;
+  if (!url) {
+    state.imgOk = null;
+    els.logo.style.backgroundImage = "";
+    els.logo.classList.remove("has-img");
+    els.logo.textContent = "Logo appears here";
+    renderMeta();
+    return;
+  }
+  imgTimer = setTimeout(() => {
+    const img = new Image();
+    img.onload = () => {
+      if (token !== state.token) return;
+      state.imgOk = true;
+      state.imgW = img.naturalWidth;
+      state.imgH = img.naturalHeight;
+      els.logo.style.backgroundImage = "url('" + url + "')";
+      els.logo.classList.add("has-img");
+      setMsg(els.urlMsg, "ok", "Logo loaded.");
+      renderMeta();
+    };
+    img.onerror = () => {
+      if (token !== state.token) return;
+      state.imgOk = false;
+      els.logo.style.backgroundImage = "";
+      els.logo.classList.remove("has-img");
+      els.logo.textContent = "Couldn't load logo";
+      setMsg(els.urlMsg, "bad", "This image didn't load. Use the direct file link from Media Library and check it opens in a private window.");
+      renderMeta();
+    };
+    img.src = url;
+  }, 350);
+}
+
+function renderMeta() {
+  const h = clampHeight();
+  els.logo.style.height = h + "px";
+  els.meta.innerHTML = "";
+  if (state.imgOk) {
+    const a = document.createElement("strong");
+    a.textContent = "Logo looks good";
+    const b = document.createElement("span");
+    b.textContent = "Image size " + state.imgW + " × " + state.imgH + " px, shown at " + h + " px tall.";
+    els.meta.append(a, b);
+    if (state.imgW && state.imgW / state.imgH < 1.2) {
+      const c = document.createElement("span");
+      c.textContent = "Tip: square or tall logos can look small. A wide version usually fits the sidebar better.";
+      els.meta.append(c);
+    }
+  } else if (state.imgOk === false) {
+    const a = document.createElement("strong");
+    a.textContent = "Logo not loading";
+    const b = document.createElement("span");
+    b.textContent = "Fix the link before pasting the code.";
+    els.meta.append(a, b);
+  } else {
+    const a = document.createElement("span");
+    a.textContent = "This is roughly how the logo will sit at the top of the sidebar.";
+    els.meta.append(a);
+  }
+}
+
+// © https://saadbinyousaf.dev/ © //
+function buildCode(name, id, url, h) {
+  const sel = '[class*="' + id + '"]';
+  const box = ":is(.hl_navbar--logo, .agency-logo-container)";
+  return [
+    "/* " + name + " */",
+    "/* © https://saadbinyousaf.dev/ © */",
+    sel + " " + box + " :is(img, svg) {",
+    "  display: none !important;",
+    "}",
+    sel + " " + box + "::before,",
+    sel + " " + box + "::after {",
+    "  content: none !important;",
+    "  display: none !important;",
+    "  background: none !important;",
+    "}",
+    sel + " " + box + " {",
+    "  height: " + h + "px;",
+    "  width: auto;",
+    "  background-image: url('" + url + "') !important;",
+    "  background-size: contain !important;",
+    "  background-repeat: no-repeat !important;",
+    "  background-position: center !important;",
+    "}"
+  ].join("\n");
+}
+
+function update(e) {
+  const name = cleanName(els.name.value);
+  const id = checkId();
+  const url = checkUrl();
+  const h = clampHeight();
+  if (!e || e.target === els.url) loadPreview(url);
+  renderMeta();
+  if (name && id && url) {
+    els.code.classList.remove("empty");
+    els.code.textContent = buildCode(name, id, url, h);
+    els.copy.disabled = false;
+  } else {
+    const missing = [];
+    if (!name) missing.push("name");
+    if (!id) missing.push("location ID");
+    if (!url) missing.push("logo link");
+    els.code.classList.add("empty");
+    els.code.textContent = "Still needed: " + missing.join(", ") + ".";
+    els.copy.disabled = true;
+  }
+}
+
+// © https://saadbinyousaf.dev/ © //
+async function copyCode() {
+  const text = els.code.textContent;
+  let ok = false;
+  try {
+    await navigator.clipboard.writeText(text);
+    ok = true;
+  } catch (_) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.opacity = "0";
+    document.body.appendChild(ta);
+    ta.select();
+    try { ok = document.execCommand("copy"); } catch (_) { ok = false; }
+    ta.remove();
+  }
+  els.copy.textContent = ok ? "Copied" : "Select and copy manually";
+  setTimeout(() => { els.copy.textContent = "Copy code"; }, 2000);
+}
+
+// © https://saadbinyousaf.dev/ © //
+["input", "change"].forEach((ev) => {
+  els.name.addEventListener(ev, update);
+  els.lid.addEventListener(ev, update);
+  els.url.addEventListener(ev, update);
+  els.height.addEventListener(ev, update);
+});
+els.copy.addEventListener("click", copyCode);
+update();
+
+// © https://saadbinyousaf.dev/ © //
+document.querySelectorAll("ins.adsbygoogle").forEach(() => {
+  try { (window.adsbygoogle = window.adsbygoogle || []).push({}); } catch (_) {}
+});
+</script>
+</body>
+</html>
